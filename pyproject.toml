@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "os-llm-agent"
+version = "0.1.0"
+description = "A simple LLM agent capable of performing simple tasks on the users operating system"
+authors = ["mvishiu11 <jakubmuszynski2103@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.2"
+langchain = "^0.3.3"
+openai = "^1.51.2"
+uvicorn = "^0.32.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+pylint = "^3.3.1"
+mypy = "^1.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
