@@ -1,10 +1,10 @@
-# CommandPilot - Your LLM Command Line Agent
+# CMDChain - Your LLM Command Line Agent
 
-Welcome to **CommandPilot**! This little project combines the magic of Large Language Models (LLMs) with the humble command line, giving you a server-based agent that can execute command line commands right from an API request. If you've ever wanted to tell a computer to do your bidding in plain language, you've found the right place.
+Welcome to **CMDChain**! This little project combines the magic of Large Language Models (LLMs) with the humble command line, giving you a server-based agent that can execute command line commands right from an API request. If you've ever wanted to tell a computer to do your bidding in plain language, you've found the right place.
 
-## What Does CommandPilot Do?
+## What Does CMDChain Do?
 
-CommandPilot lets you:
+CMDChain lets you:
 
 - **Talk to Your Server**: Send natural language instructions like, "Find all `.txt` files in a folder and rename the ones with the word 'log' to `.log` files."
 - **Simple Command Line Control**: Navigate the file system, create, read, or modify files—all by chatting with your agent.
@@ -12,7 +12,7 @@ CommandPilot lets you:
 
 ## Tech Stack
 
-Here's what keeps CommandPilot running smoothly:
+Here's what keeps CMDChain running smoothly:
 
 - **Python**: The core language for this project.
 - **LangChain/LangGraph**: For building the LLM-based agent.
@@ -39,8 +39,8 @@ Here's what keeps CommandPilot running smoothly:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/commandpilot.git
-   cd commandpilot
+   git clone https://github.com/mvishiu11/CMDChain.git
+   cd CMDChain
    ```
 
 2. Install dependencies using Poetry:
@@ -50,7 +50,7 @@ Here's what keeps CommandPilot running smoothly:
 
 3. Start the server:
    ```bash
-   poetry run uvicorn main:app --host 0.0.0.0 --port 8000
+   poetry run server
    ```
 
 4. You're ready to send some commands! 🎉
@@ -65,7 +65,39 @@ Send a POST request to `http://0.0.0.0:8000/agent` with the following JSON paylo
 }
 ```
 
+Example with curl:
+
+```bash
+curl -X POST "http://0.0.0.0:8000/agent" -H "Content-Type: application/json" -d '{"msg": "Change extension of all files in 'test' dir with .txt extension to .log extension."}'
+```
+
 The agent will use command line tools to do its best to fulfill your request.
+
+Example response:
+
+```json
+{"response":"some.txt\nsomev2.txt\n\n\n\nFile moved successfully from test/some.txt to test/some.log.\n\nFile moved successfully from test/somev2.txt to test/somev2.log.\n\nsome.log\nother.pdf\nsomev2.log\nAll .txt files with the word \"log\" in their content have been changed to have the .log extension in the test directory."}
+```
+
+```
+some.txt
+somev2.txt
+
+File moved successfully from test/some.txt to test/some.log.
+File moved successfully from test/somev2.txt to test/somev2.log.
+
+some.log
+other.pdf
+somev2.log
+
+All .txt files with the word "log" in their content have been changed to have the .log extension in the test directory.
+```
+
+Which translates to:
+
+- The agent found two files in the `test` directory with the `.txt` extension.
+- It successfully changed their extensions to `.log`.
+- It then listed all files in the directory, showing the changes made.
 
 ### API Overview
 
@@ -98,7 +130,7 @@ This project is licensed under the MIT License. See `LICENSE` for more details.
 
 ## Final Thoughts
 
-CommandPilot is a fun way to bring natural language control to the command line. We hope you enjoy tinkering with it as much as we enjoyed building it!
+CMDChain is a fun way to bring natural language control to the command line. We hope you enjoy tinkering with it as much as we enjoyed building it!
 
 If you have any questions or suggestions, please reach out. We'd love to hear your thoughts!
 
