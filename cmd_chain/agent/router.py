@@ -15,8 +15,8 @@ from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.prebuilt import create_react_agent
-from pydantic import BaseModel
 from langgraph.types import RunnableConfig
+from pydantic import BaseModel
 
 load_dotenv()
 
