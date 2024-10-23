@@ -17,7 +17,7 @@ Here's what keeps CMDChain running smoothly:
 - **Python**: The core language for this project.
 - **LangChain/LangGraph**: For building the LLM-based agent.
 - **FastAPI/Flask**: To create the server that provides the API.
-- **Google AI Studio** (or your LLM of choice): For powering the agent itself.
+- **OpenAI API**: For powering the agent itself.
 - **Poetry**: To keep those pesky dependencies in check.
 
 ## Features
@@ -33,7 +33,7 @@ Here's what keeps CMDChain running smoothly:
 
 - **Python 3.12+**
 - **Poetry** for dependency management (recommended)
-- A working internet connection (to connect to your LLM of choice)
+- A working internet connection (to connect to OpenAI and LangSmith APIs)
 
 ### Installation
 
@@ -48,12 +48,27 @@ Here's what keeps CMDChain running smoothly:
    poetry install
    ```
 
-3. Start the server:
+3. Set up your `.env` file:
+   ```
+   APP_OPENAI__API_KEY="your_openai_api_key"
+   APP_OPENAI__MODEL="gpt-3.5-turbo"
+
+   // Optional: For LangSmith tracing
+   LANGCHAIN_TRACING_V2=true
+   LANGCHAIN_ENDPOINT="https://api.smith.langchain.com"
+   LANGCHAIN_API_KEY="your_langsmith_api_key"
+   LANGCHAIN_PROJECT="project-name"
+   ```
+
+   - Replace `your_openai_api_key` with your actual OpenAI API key.
+   - Replace `your_langsmith_api_key` and `project-name` with your LangSmith project details to enable tracing.
+
+4. Start the server:
    ```bash
    poetry run server
    ```
 
-4. You're ready to send some commands! 🎉
+5. You're ready to send some commands! 🎉
 
 ### Example Request
 
@@ -98,6 +113,10 @@ Which translates to:
 - The agent found two files in the `test` directory with the `.txt` extension.
 - It successfully changed their extensions to `.log`.
 - It then listed all files in the directory, showing the changes made.
+
+If you enabled LangSmith tracing, you can view the trace in the LangSmith dashboard:
+
+![LangSmith Dashboard](images/langsmith.png)
 
 ### API Overview
 
