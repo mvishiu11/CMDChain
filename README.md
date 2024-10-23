@@ -31,7 +31,7 @@ Here's what keeps CMDChain running smoothly:
 
 ### Prerequisites
 
-- **Python 3.9+**
+- **Python 3.12+**
 - **Poetry** for dependency management (recommended)
 - A working internet connection (to connect to your LLM of choice)
 
@@ -130,7 +130,7 @@ This project is licensed under the MIT License. See `LICENSE` for more details.
 
 ## Final Thoughts
 
-CMDChain is a fun way to bring natural language control to the command line. We hope you enjoy tinkering with it as much as we enjoyed building it!
+CMDChain is a fun way to bring natural language control to the command line.
 
 If you have any questions or suggestions, please reach out. We'd love to hear your thoughts!
 
