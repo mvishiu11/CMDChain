@@ -125,12 +125,14 @@ If you enabled LangSmith tracing, you can view the trace in the LangSmith dashbo
 - **Request Body**: JSON containing a `msg` field (string)
 - **Response**: JSON containing the result or error message
 
-## Running Tests
+Request format:
 
-Testing is always a good idea. Make sure everything's working with:
-
-```bash
-poetry run pytest
+```json
+{
+  "msg": "Your natural language command here.",   // Required: Natural language command
+  "root_dir": "optional_root_directory",          // Optional: Root directory for the command execution (for the file system tool)
+  "reset_memory": "true/false"                    // Optional: Reset agent memory before executing the command
+}
 ```
 
 ## Contribution Guidelines
