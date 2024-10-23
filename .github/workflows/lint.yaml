@@ -33,5 +33,5 @@ jobs:
       - name: Run Linters
         run: |
           poetry run black . --check
-          poetry run pylint agent server tests
-          poetry run mypy agent server tests
+          poetry run pylint cmd_chain
+          poetry run mypy cmd_chain
