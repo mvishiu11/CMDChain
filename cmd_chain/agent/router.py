@@ -16,6 +16,7 @@ from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.prebuilt import create_react_agent
 from pydantic import BaseModel
+from langgraph.types import RunnableConfig
 
 load_dotenv()
 
@@ -52,7 +53,7 @@ async def process_request(request: AgentRequest):
     Returns:
         dict: A response containing the agent's processed output.
     """
-    config = {"configurable": {"thread_id": "abc123"}}
+    config = RunnableConfig(configurable={"thread_id": "abc123"})
     human_msg = request.msg
     response = ""
 

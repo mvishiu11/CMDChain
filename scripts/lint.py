@@ -10,7 +10,7 @@ def main():
     """
     Main linting function that runs black, pylint, and mypy on the project.
     """
-    tools = ["black .", "pylint .", "mypy cmd_chain"]
+    tools = ["black .", "pylint .", "mypy ."]
 
     for tool in tools:
         try:
