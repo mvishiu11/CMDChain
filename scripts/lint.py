@@ -2,7 +2,7 @@ import subprocess
 
 
 def main():
-    tools = ["black . --check", "pylint agent server tests", "mypy agent server tests"]
+    tools = ["black . --check", "pylint cmd_chain", "mypy cmd_chain"]
 
     for tool in tools:
         try:
